@@ -29,9 +29,24 @@ npm start
 - `Grid Opacity`: グリッド透明度
 - `Quit`: アプリ終了
 
+## EXEビルド
+
+```bash
+npm run dist
+```
+
+- 出力先: `dist/`
+- 生成例: `Grid Overlay Setup 1.0.0.exe`
+
+ポータブル版も作成できます。
+
+```bash
+npm run dist:portable
+```
+
 ## 設定ファイル
 
-- ルートの `settings.json` に保存されます。
+- `settings.json` はユーザーデータ配下（`%APPDATA%/grid-overlay/` 相当）に保存されます。
 - 保存項目: `enabled`, `displayId`, `spacing`, `color`, `opacity`
 
 ## 既知の制約
@@ -46,4 +61,3 @@ npm start
 - `Display` 変更で選択モニタにのみグリッドが表示される。
 - `Grid Spacing` / `Grid Color` / `Grid Opacity` が即時反映される。
 - 再起動後に設定が復元される。
-# grid-overlay

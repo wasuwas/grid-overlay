@@ -1,0 +1,55 @@
+{
+  "name": "grid-overlay",
+  "version": "1.0.0",
+  "description": "Tray resident grid overlay for Windows",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win nsis",
+    "dist:portable": "electron-builder --win portable"
+  },
+  "keywords": [],
+  "author": "wasuwasu",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^42.0.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.wasumik.grid-overlay",
+    "productName": "Grid Overlay",
+    "directories": {
+      "output": "dist"
+    },
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+    "files": [
+      "main.js",
+      "preload.js",
+      "overlay.html",
+      "overlay.css",
+      "overlay.js",
+      "settings.json",
+      "package.json"
+    ],
+    "win": {
+      "publisherName": "wasuwasu",
+      "verifyUpdateCodeSignature": false,
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "${productName} Setup ${version}.${ext}",
+      "shortcutName": "Grid Overlay",
+      "uninstallDisplayName": "Grid Overlay"
+    }
+  }
+}
