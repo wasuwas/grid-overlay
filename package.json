@@ -24,7 +24,6 @@
     },
     "artifactName": "${productName}-${version}-${arch}.${ext}",
     "files": [
-      "assets/**/*",
       "main.js",
       "preload.js",
       "overlay.html",
@@ -34,7 +33,6 @@
       "package.json"
     ],
     "win": {
-      "icon": "assets/icon.ico",
       "publisherName": "wasuwasu",
       "verifyUpdateCodeSignature": false,
       "target": [
