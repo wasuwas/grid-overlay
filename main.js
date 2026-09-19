@@ -60,8 +60,7 @@ function saveSettings() {
 function createTrayIcon() {
   const traySvg = `
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <rect width="16" height="16" fill="#202124"/>
-  <path d="M0 4.5h16M0 8h16M0 11.5h16M4.5 0v16M8 0v16M11.5 0v16" stroke="#32d74b" stroke-width="1"/>
+  <rect x="2.5" y="2.5" width="11" height="11" rx="1.5" fill="none" stroke="#32d74b" stroke-width="1.5"/>
 </svg>`;
   return nativeImage
     .createFromDataURL(`data:image/svg+xml;charset=utf-8,${encodeURIComponent(traySvg)}`)
