@@ -32,6 +32,7 @@ let overlayWindow = null;
 let tray = null;
 let isQuitting = false;
 let settings = loadSettings();
+const APP_ICON_PATH = path.join(__dirname, "assets", "icon.png");
 
 function loadSettings() {
   try {
@@ -58,14 +59,7 @@ function saveSettings() {
 }
 
 function createTrayIcon() {
-  const traySvg = `
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <rect width="16" height="16" fill="#202124"/>
-  <path d="M0 4.5h16M0 8h16M0 11.5h16M4.5 0v16M8 0v16M11.5 0v16" stroke="#32d74b" stroke-width="1"/>
-</svg>`;
-  return nativeImage
-    .createFromDataURL(`data:image/svg+xml;charset=utf-8,${encodeURIComponent(traySvg)}`)
-    .resize({ width: 16, height: 16 });
+  return nativeImage.createFromPath(APP_ICON_PATH).resize({ width: 16, height: 16 });
 }
 
 function getDisplayLabel(display, index) {
@@ -146,6 +140,7 @@ function createOverlayWindow() {
     skipTaskbar: true,
     hasShadow: false,
     show: false,
+    icon: APP_ICON_PATH,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       contextIsolation: true,
