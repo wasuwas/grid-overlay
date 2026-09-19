@@ -129,6 +129,17 @@ function refreshOverlayVisibility() {
   }
 }
 
+function setGridEnabled(enabled) {
+  settings.enabled = enabled;
+  saveSettings();
+  refreshOverlayVisibility();
+  rebuildTrayMenu();
+}
+
+function toggleGridEnabled() {
+  setGridEnabled(!settings.enabled);
+}
+
 function createOverlayWindow() {
   const targetDisplay = getResolvedDisplay() || screen.getPrimaryDisplay();
   overlayWindow = new BrowserWindow({
@@ -167,6 +178,9 @@ function createOverlayWindow() {
 function createTray() {
   tray = new Tray(createTrayIcon());
   tray.setToolTip("Grid Overlay");
+  tray.on("double-click", () => {
+    toggleGridEnabled();
+  });
   rebuildTrayMenu();
 }
 
@@ -201,9 +215,7 @@ function rebuildTrayMenu() {
       type: "checkbox",
       checked: settings.enabled,
       click: (menuItem) => {
-        settings.enabled = menuItem.checked;
-        saveSettings();
-        refreshOverlayVisibility();
+        setGridEnabled(menuItem.checked);
       },
     },
     { type: "separator" },
