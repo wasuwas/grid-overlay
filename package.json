@@ -13,8 +13,8 @@
   "author": "wasuwasu",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^42.0.1",
-    "electron-builder": "^24.13.3"
+    "electron": "^42.11.16",
+    "electron-builder": "^26.18.0"
   },
   "build": {
     "appId": "com.wasumik.grid-overlay",
